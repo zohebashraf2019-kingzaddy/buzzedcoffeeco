@@ -5,7 +5,7 @@
 
 const CONFIG = {
   // Online ordering link (Square, Toast, etc). Leave "" to show a "Call Ahead" button instead.
-  orderUrl: "",
+  orderUrl: "https://buzzedcoffeeco.square.site/s/order",
   phone: "+17753841777",
   // Contact + newsletter forms are delivered to this inbox via FormSubmit (formsubmit.co).
   // The very first submission sends a one-time activation email to this address — click it once.
@@ -193,8 +193,8 @@ function initNav() {
   $$(".nav__links a").forEach((a) => a.addEventListener("click", () => { nav.classList.remove("open"); btn.setAttribute("aria-expanded", false); }));
 
   $$("[data-order-link]").forEach((a) => {
-    if (CONFIG.orderUrl) { a.href = CONFIG.orderUrl; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Order Ahead"; }
-    else { a.href = `tel:${CONFIG.phone}`; a.textContent = "Call Ahead"; }
+    if (CONFIG.orderUrl) { a.href = CONFIG.orderUrl; a.target = "_blank"; a.rel = "noopener"; if (!("keepText" in a.dataset)) a.textContent = "Order Ahead"; }
+    else { a.href = `tel:${CONFIG.phone}`; if (!("keepText" in a.dataset)) a.textContent = "Call Ahead"; }
   });
   $("#year").textContent = new Date().getFullYear();
 

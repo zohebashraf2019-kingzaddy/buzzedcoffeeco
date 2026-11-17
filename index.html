@@ -86,8 +86,8 @@
           </h1>
           <p class="hero__lede">Espresso, matcha, chai and 21-flavor Red Bull refreshers made the way you like them — steps from UNR. Grab a Sharpie, sign the wall, and stay a while.</p>
           <div class="hero__actions">
-            <a href="#menu" class="btn btn--yellow">See the Menu</a>
-            <a href="#builder" class="btn btn--ghost">Build a Refresher ⚡</a>
+            <a href="#menu" class="btn btn--yellow" data-order-link data-keep-text>Order for Pickup ⚡</a>
+            <a href="#menu" class="btn btn--ghost">See the Menu</a>
           </div>
           <ul class="hero__facts">
             <li><b>18+</b><span>syrup flavors</span></li>
@@ -156,6 +156,15 @@
           </label>
         </div>
 
+        <div class="pickup">
+          <div class="pickup__icon" aria-hidden="true">🛍️</div>
+          <div class="pickup__text">
+            <b>Skip the line — order ahead.</b>
+            <span>Order online and pick up at 941 N. Virginia St. Pick your size &amp; options when you order.</span>
+          </div>
+          <a class="btn btn--yellow btn--sm" data-order-link data-keep-text href="#menu">Start your order →</a>
+        </div>
+
         <div class="tabs" role="tablist" aria-label="Menu categories" id="menuTabs"></div>
         <div id="menuPanels"></div>
         <p class="menu__empty" id="menuEmpty" hidden>No matches — but ask us, we can probably make it. ⚡</p>
@@ -216,6 +225,7 @@
               <div class="cup-preview__btns">
                 <button type="button" class="btn btn--dark btn--sm" id="labCopy">Copy my order</button>
                 <button type="button" class="btn btn--ghost-dark btn--sm" id="labRandom">Surprise me 🎲</button>
+                <a class="btn btn--ghost-dark btn--sm" data-order-link data-keep-text href="#menu">Order it online</a>
               </div>
             </div>
           </div>
@@ -468,6 +478,7 @@
     <p class="footer__legal">© <span id="year">2026</span> Buzzed Coffee. All rights reserved. · Website by <a href="https://www.nexoradigital.live" target="_blank" rel="noopener">Nexora Digital</a></p>
   </footer>
 
+  <a class="fab-order" data-order-link data-keep-text href="#menu" aria-label="Order online for pickup">⚡ Order for Pickup</a>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="/app.js" defer></script>
 </body>

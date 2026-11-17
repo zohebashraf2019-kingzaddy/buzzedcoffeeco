@@ -522,8 +522,10 @@ function initForms() {
     e.preventDefault();
     if (news._honey.value) return;
     const email = news.email.value.trim();
+    news.email.classList.toggle("is-invalid", !/^\S+@\S+\.\S+$/.test(email));
     if (!/^\S+@\S+\.\S+$/.test(email)) { nStatus.className = "form__status err"; nStatus.textContent = "Please enter a valid email."; return; }
     const btn = $("button", news);
+    btn.textContent = "Signing up…";
     btn.disabled = true;
     try {
       await sendForm({ _subject: "New newsletter signup — Buzzed Coffee website", Email: email, Source: "Website newsletter form" });
@@ -531,7 +533,7 @@ function initForms() {
       nStatus.className = "form__status ok"; nStatus.textContent = "You're on the list! ⚡";
     } catch {
       nStatus.className = "form__status err"; nStatus.textContent = "Couldn't sign you up right now — try again in a bit.";
-    } finally { btn.disabled = false; }
+    } finally { btn.disabled = false; btn.textContent = "Sign Up"; }
   });
 }
 

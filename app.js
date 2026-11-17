@@ -197,6 +197,15 @@ function initNav() {
     else { a.href = `tel:${CONFIG.phone}`; a.textContent = "Call Ahead"; }
   });
   $("#year").textContent = new Date().getFullYear();
+
+  // Logo → smooth scroll back to the very top of the page
+  $$("[data-to-top]").forEach((a) => a.addEventListener("click", (e) => {
+    e.preventDefault();
+    nav.classList.remove("open");
+    btn.setAttribute("aria-expanded", false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    history.replaceState(null, "", location.pathname + location.search);
+  }));
 }
 
 /* ==========================================================
